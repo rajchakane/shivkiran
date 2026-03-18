@@ -1,5 +1,5 @@
 import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
@@ -282,7 +282,28 @@ export const PropertyCard = ({ property }: { property: Property; key?: string })
               {property.area}
             </div>
           </div>
-          <button className="p-2 bg-stone-50 rounded-full text-stone-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+          <button 
+            onClick={async () => {
+              // 1. Send Email via API
+              try {
+                await fetch('/api/send-email', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    name: 'Interested Visitor',
+                    phone: 'N/A',
+                    message: `Interested in property: ${property.title} at ${property.location}`,
+                    source: 'Property Card'
+                  }),
+                });
+                alert('Enquiry sent successfully! We will contact you soon.');
+              } catch (error) {
+                console.error('Error sending email:', error);
+                alert('Failed to send enquiry. Please try again later.');
+              }
+            }}
+            className="p-2 bg-stone-50 rounded-full text-stone-400 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+          >
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
@@ -398,6 +419,39 @@ export const About = () => {
 };
 
 export const Contact = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    type: 'Residential - Buy',
+    message: ''
+  });
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    // 1. Send Email via API
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          type: formData.type,
+          message: formData.message,
+          source: 'Contact Form'
+        }),
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send message. Please try again later.');
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-stone-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -415,7 +469,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Call Us</div>
-                  <div className="text-xl font-bold">+91 98765 43210</div>
+                  <div className="text-xl font-bold">+91 95525 30570</div>
                 </div>
               </div>
               
@@ -435,45 +489,95 @@ export const Contact = () => {
                 </div>
                 <div>
                   <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Visit Us</div>
-                  <div className="text-xl font-bold">Plot 45, Road No. 10, Jubilee Hills, Hyderabad</div>
+                  <div className="text-xl font-bold">B 308 Plot No. 13, Kukreja Center, Kokan Bhavan Rd, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614</div>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="bg-white rounded-[40px] p-8 md:p-12 text-stone-900">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold mb-2">Full Name</label>
-                  <input type="text" className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" placeholder="John Doe" />
+            {isSubmitted ? (
+              <div className="text-center py-12">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-6">
+                  <Star className="text-emerald-600 w-10 h-10 fill-emerald-600" />
+                </div>
+                <h3 className="text-3xl font-bold mb-4">Message Sent!</h3>
+                <p className="text-stone-500 text-lg">Thank you for reaching out. We will get back to you shortly.</p>
+                <button 
+                  onClick={() => setIsSubmitted(false)}
+                  className="mt-8 text-emerald-600 font-bold hover:underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-bold mb-2">Full Name</label>
+                    <input 
+                      required
+                      type="text" 
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                      placeholder="John Doe" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold mb-2">Phone Number</label>
+                    <input 
+                      required
+                      type="tel" 
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                      placeholder="+91 ..." 
+                    />
+                  </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold mb-2">Phone Number</label>
-                  <input type="tel" className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" placeholder="+91 ..." />
+                  <label className="block text-sm font-bold mb-2">Email Address</label>
+                  <input 
+                    required
+                    type="email" 
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                    placeholder="john@example.com" 
+                  />
                 </div>
-              </div>
-              <div>
-                <label className="block text-sm font-bold mb-2">Email Address</label>
-                <input type="email" className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" placeholder="john@example.com" />
-              </div>
-              <div>
-                <label className="block text-sm font-bold mb-2">Property Type</label>
-                <select className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20">
-                  <option>Residential - Buy</option>
-                  <option>Residential - Rent</option>
-                  <option>Commercial - Buy</option>
-                  <option>Commercial - Rent</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-bold mb-2">Message</label>
-                <textarea rows={4} className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" placeholder="Tell us what you're looking for..."></textarea>
-              </div>
-              <button className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg">
-                Send Message
-              </button>
-            </form>
+                <div>
+                  <label className="block text-sm font-bold mb-2">Property Type</label>
+                  <select 
+                    value={formData.type}
+                    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                    className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                  >
+                    <option>Residential - Buy</option>
+                    <option>Residential - Rent</option>
+                    <option>Commercial - Buy</option>
+                    <option>Commercial - Rent</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2">Message</label>
+                  <textarea 
+                    rows={4} 
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                    placeholder="Tell us what you're looking for..."
+                  ></textarea>
+                </div>
+                <button 
+                  type="submit"
+                  className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -536,5 +640,155 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
+  );
+};
+
+export const EnquiryPopup = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isClosedManually, setIsClosedManually] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    message: ''
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isClosedManually) {
+        setIsVisible(true);
+      }
+    }, 30000); // 30 seconds
+
+    return () => clearTimeout(timer);
+  }, [isClosedManually]);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    
+    // 1. Send Email via API
+    try {
+      await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          message: formData.message,
+          source: 'Enquiry Popup'
+        }),
+      });
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsVisible(false);
+        setIsClosedManually(true);
+      }, 3000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send enquiry. Please try again later.');
+    }
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative w-full max-w-lg bg-white rounded-[40px] shadow-2xl overflow-hidden"
+          >
+            <button 
+              onClick={() => {
+                setIsVisible(false);
+                setIsClosedManually(true);
+              }}
+              className="absolute top-6 right-6 p-2 bg-stone-100 rounded-full text-stone-500 hover:bg-stone-200 transition-colors z-10"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="p-8 md:p-10">
+              {isSubmitted ? (
+                <div className="text-center py-10">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-6">
+                    <Star className="text-emerald-600 w-10 h-10 fill-emerald-600" />
+                  </div>
+                  <h2 className="text-3xl font-display font-bold text-stone-900">Thank You!</h2>
+                  <p className="text-stone-500 mt-4 text-lg">Your enquiry has been received. We will contact you shortly.</p>
+                </div>
+              ) : (
+                <>
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-2xl mb-4">
+                      <Mail className="text-emerald-600 w-8 h-8" />
+                    </div>
+                    <h2 className="text-3xl font-display font-bold text-stone-900">Enquire Now</h2>
+                    <p className="text-stone-500 mt-2">Get personalized property recommendations today!</p>
+                  </div>
+
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    <div>
+                      <label className="block text-sm font-bold mb-1.5 text-stone-700">Full Name</label>
+                      <input 
+                        required
+                        type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-5 py-3.5 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                        placeholder="John Doe" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold mb-1.5 text-stone-700">Phone Number</label>
+                      <input 
+                        required
+                        type="tel" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-5 py-3.5 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                        placeholder="+91 ..." 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold mb-1.5 text-stone-700">Message</label>
+                      <textarea 
+                        rows={3} 
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-5 py-3.5 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
+                        placeholder="I am interested in..."
+                      ></textarea>
+                    </div>
+                    <button 
+                      type="submit"
+                      className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg mt-2"
+                    >
+                      Submit Enquiry
+                    </button>
+                  </form>
+
+                  <div className="mt-6 text-center">
+                    <Link 
+                      to="/privacy" 
+                      onClick={() => {
+                        setIsVisible(false);
+                        setIsClosedManually(true);
+                      }}
+                      className="text-stone-400 text-xs hover:text-emerald-600 transition-colors underline underline-offset-4"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 };

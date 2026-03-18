@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Navbar, Hero, PropertyGrid, About, Contact, Footer } from './components/RealEstate';
+import { Navbar, Hero, PropertyGrid, About, Contact, Footer, EnquiryPopup } from './components/RealEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function ScrollToTop() {
@@ -40,6 +40,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <EnquiryPopup />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

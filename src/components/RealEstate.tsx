@@ -1,6 +1,7 @@
 import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 // Types
 export interface Property {
@@ -100,17 +101,19 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex items-center gap-2">
-            <div className="bg-emerald-600 p-2 rounded-lg">
-              <Home className="text-white w-6 h-6" />
-            </div>
-            <span className="text-2xl font-display font-bold tracking-tight">ShivKiran<span className="text-emerald-600">Properties</span></span>
+            <Link to="/" className="flex items-center gap-2">
+              <div className="bg-emerald-600 p-2 rounded-lg">
+                <Home className="text-white w-6 h-6" />
+              </div>
+              <span className="text-2xl font-display font-bold tracking-tight">ShivKiran<span className="text-emerald-600">Properties</span></span>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Home</a>
-            <a href="#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Properties</a>
-            <a href="#about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About</a>
-            <a href="#contact" className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg">Contact Us</a>
+            <Link to="/" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Home</Link>
+            <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Properties</a>
+            <a href="/#about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About</a>
+            <a href="/#contact" className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg">Contact Us</a>
           </div>
 
           <div className="md:hidden">
@@ -129,10 +132,10 @@ export const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden bg-white border-t border-stone-100 p-4 space-y-4"
           >
-            <a href="#" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</a>
-            <a href="#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Properties</a>
-            <a href="#about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About</a>
-            <a href="#contact" className="block bg-emerald-600 text-white px-6 py-3 rounded-xl text-center font-medium" onClick={() => setIsOpen(false)}>Contact Us</a>
+            <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
+            <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Properties</a>
+            <a href="/#about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About</a>
+            <a href="/#contact" className="block bg-emerald-600 text-white px-6 py-3 rounded-xl text-center font-medium" onClick={() => setIsOpen(false)}>Contact Us</a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -498,10 +501,11 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-stone-500">
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Home</a></li>
-              <li><a href="#properties" className="hover:text-emerald-600 transition-colors">Properties</a></li>
-              <li><a href="#about" className="hover:text-emerald-600 transition-colors">About Us</a></li>
-              <li><a href="#contact" className="hover:text-emerald-600 transition-colors">Contact</a></li>
+              <li><Link to="/" className="hover:text-emerald-600 transition-colors">Home</Link></li>
+              <li><a href="/#properties" className="hover:text-emerald-600 transition-colors">Properties</a></li>
+              <li><a href="/#about" className="hover:text-emerald-600 transition-colors">About Us</a></li>
+              <li><Link to="/privacy" className="hover:text-emerald-600 transition-colors">Privacy Policy</Link></li>
+              <li><a href="/#contact" className="hover:text-emerald-600 transition-colors">Contact</a></li>
             </ul>
           </div>
           

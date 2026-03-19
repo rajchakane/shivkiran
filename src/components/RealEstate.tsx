@@ -22,73 +22,65 @@ export interface Property {
 export const properties: Property[] = [
   {
     id: '1',
-    title: 'Modern Luxury Villa',
-    price: '₹4.5 Cr',
-    location: 'Banjara Hills, Hyderabad',
+    title: 'Premium Residential Plot',
+    price: '₹45 L',
+    location: 'Uran, Navi Mumbai (3rd Mumbai)',
     type: 'Residential',
     category: 'Buy',
-    bhk: 4,
-    bathrooms: 5,
-    area: '4500 sqft',
-    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800',
+    area: '1200 sqft',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800',
     featured: true
   },
   {
     id: '2',
-    title: 'Premium Office Space',
-    price: '₹1.2 L/mo',
-    location: 'Hitech City, Hyderabad',
+    title: 'Commercial Plot near Airport',
+    price: '₹1.2 Cr',
+    location: 'Ranjanpada, Navi Mumbai',
     type: 'Commercial',
-    category: 'Rent',
+    category: 'Buy',
     area: '2500 sqft',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800',
     featured: true
   },
   {
     id: '3',
-    title: 'Skyline Apartment',
-    price: '₹2.8 Cr',
-    location: 'Gachibowli, Hyderabad',
+    title: 'Investment Land near Highway',
+    price: '₹85 L',
+    location: 'Pen, Raigad (3rd Mumbai)',
     type: 'Residential',
     category: 'Buy',
-    bhk: 3,
-    bathrooms: 3,
-    area: '2200 sqft',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800'
+    area: '5000 sqft',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: '4',
-    title: 'Retail Showroom',
-    price: '₹8.5 Cr',
-    location: 'Jubilee Hills, Hyderabad',
+    title: 'Industrial Plot near IT Hub',
+    price: '₹2.5 Cr',
+    location: 'Uran, Navi Mumbai',
     type: 'Commercial',
     category: 'Buy',
-    area: '3500 sqft',
-    image: 'https://images.unsplash.com/photo-1555633514-abcee6ad93e1?auto=format&fit=crop&q=80&w=800'
+    area: '10000 sqft',
+    image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: '5',
-    title: 'Cozy Studio Flat',
-    price: '₹25,000/mo',
-    location: 'Kukatpally, Hyderabad',
+    title: 'Residential Plot near Station',
+    price: '₹35 L',
+    location: 'Ranjanpada, Navi Mumbai',
     type: 'Residential',
-    category: 'Rent',
-    bhk: 1,
-    bathrooms: 1,
-    area: '650 sqft',
-    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800'
+    category: 'Buy',
+    area: '1000 sqft',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: '6',
-    title: 'Independent House',
-    price: '₹3.2 Cr',
-    location: 'Manikonda, Hyderabad',
+    title: 'Farmhouse Land',
+    price: '₹1.5 Cr',
+    location: 'Pen, Raigad',
     type: 'Residential',
     category: 'Buy',
-    bhk: 3,
-    bathrooms: 3,
-    area: '2800 sqft',
-    image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=800'
+    area: '1 Acre',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800'
   }
 ];
 
@@ -111,7 +103,8 @@ export const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Home</Link>
-            <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Properties</a>
+            <a href="/#developments" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Developments</a>
+            <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Plots</a>
             <a href="/#about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About</a>
             <a href="/#contact" className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg">Contact Us</a>
           </div>
@@ -133,7 +126,8 @@ export const Navbar = () => {
             className="md:hidden bg-white border-t border-stone-100 p-4 space-y-4"
           >
             <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
-            <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Properties</a>
+            <a href="/#developments" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Developments</a>
+            <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Plots</a>
             <a href="/#about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About</a>
             <a href="/#contact" className="block bg-emerald-600 text-white px-6 py-3 rounded-xl text-center font-medium" onClick={() => setIsOpen(false)}>Contact Us</a>
           </motion.div>
@@ -162,10 +156,10 @@ export const Hero = () => {
               Real Estate Experts
             </span>
             <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-6">
-              Find Your <span className="text-emerald-600">Perfect</span> Space to Live & Work
+              Invest in <span className="text-emerald-600">3rd Mumbai</span> Plotting Opportunities
             </h1>
             <p className="text-lg text-stone-600 mb-10 max-w-lg leading-relaxed">
-              We provide premium residential and commercial properties tailored to your needs. Discover the best deals in the most sought-after locations.
+              Discover premium plots in Uran, Ranjanpada, and Pen. Benefit from massive government developments like the Navi Mumbai International Airport, MTHL, and upcoming IT Hubs.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -178,24 +172,24 @@ export const Hero = () => {
                 />
               </div>
               <button className="bg-stone-900 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-stone-800 transition-all flex items-center justify-center gap-2">
-                Search Properties
+                Search Plots
               </button>
             </div>
 
             <div className="mt-12 flex items-center gap-8">
               <div>
+                <div className="text-3xl font-bold font-display">200+</div>
+                <div className="text-stone-500 text-sm">Plots Sold</div>
+              </div>
+              <div className="w-px h-10 bg-stone-200" />
+              <div>
                 <div className="text-3xl font-bold font-display">500+</div>
-                <div className="text-stone-500 text-sm">Properties Sold</div>
+                <div className="text-stone-500 text-sm">Happy Investors</div>
               </div>
               <div className="w-px h-10 bg-stone-200" />
               <div>
-                <div className="text-3xl font-bold font-display">1k+</div>
-                <div className="text-stone-500 text-sm">Happy Clients</div>
-              </div>
-              <div className="w-px h-10 bg-stone-200" />
-              <div>
-                <div className="text-3xl font-bold font-display">15+</div>
-                <div className="text-stone-500 text-sm">Years Experience</div>
+                <div className="text-3xl font-bold font-display">10+</div>
+                <div className="text-stone-500 text-sm">Years in 3rd Mumbai</div>
               </div>
             </div>
           </motion.div>
@@ -271,12 +265,6 @@ export const PropertyCard = ({ property }: { property: Property; key?: string })
         
         <div className="flex items-center justify-between pt-4 border-t border-stone-50">
           <div className="flex gap-4">
-            {property.bhk && (
-              <div className="flex items-center gap-1.5 text-stone-500 text-sm">
-                <Bed className="w-4 h-4" />
-                {property.bhk} BHK
-              </div>
-            )}
             <div className="flex items-center gap-1.5 text-stone-500 text-sm">
               <Square className="w-4 h-4" />
               {property.area}
@@ -325,7 +313,7 @@ export const PropertyGrid = () => {
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
           <div>
             <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Portfolio</span>
-            <h2 className="text-4xl md:text-5xl font-bold">Latest Properties</h2>
+            <h2 className="text-4xl md:text-5xl font-bold">Premium Plots in 3rd Mumbai</h2>
           </div>
           
           <div className="flex bg-white p-1.5 rounded-2xl border border-stone-200 shadow-sm">
@@ -353,9 +341,58 @@ export const PropertyGrid = () => {
 
         <div className="mt-16 text-center">
           <button className="inline-flex items-center gap-2 text-stone-900 font-bold hover:text-emerald-600 transition-colors group">
-            View All Properties
+            View All Plots
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const Developments = () => {
+  const developments = [
+    {
+      title: "Navi Mumbai International Airport",
+      description: "A world-class airport expected to drive massive economic growth and connectivity in the 3rd Mumbai region.",
+      icon: "✈️"
+    },
+    {
+      title: "MTHL (Atal Setu)",
+      description: "India's longest sea bridge connecting Mumbai to Navi Mumbai, drastically reducing travel time.",
+      icon: "🌉"
+    },
+    {
+      title: "Upcoming IT Hubs & SEZs",
+      description: "Strategic development of technology parks and special economic zones in Uran and surrounding areas.",
+      icon: "🏢"
+    },
+    {
+      title: "Highways & Infrastructure",
+      description: "Expansion of major highways and local road networks to support the growing 3rd Mumbai ecosystem.",
+      icon: "🛣️"
+    }
+  ];
+
+  return (
+    <section id="developments" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Future Growth</span>
+          <h2 className="text-4xl md:text-5xl font-bold">Government Developments in 3rd Mumbai</h2>
+          <p className="text-stone-600 mt-4 max-w-2xl mx-auto">
+            The 3rd Mumbai region is witnessing unprecedented infrastructure growth, making it the prime destination for land investment.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {developments.map((dev, i) => (
+            <div key={i} className="p-8 rounded-[32px] bg-stone-50 border border-stone-100 hover:shadow-lg transition-all">
+              <div className="text-4xl mb-6">{dev.icon}</div>
+              <h3 className="text-xl font-bold mb-4">{dev.title}</h3>
+              <p className="text-stone-500 text-sm leading-relaxed">{dev.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -387,9 +424,9 @@ export const About = () => {
 
           <div>
             <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">About Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">We Are Your Trusted Real Estate Partner</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">Your Gateway to 3rd Mumbai Real Estate</h2>
             <p className="text-stone-600 text-lg mb-8 leading-relaxed">
-              Shiv Kiran Properties has been a leader in the real estate market for over 15 years. We specialize in connecting people with their dream homes and ideal business locations. Our commitment to transparency, integrity, and customer satisfaction sets us apart.
+              Shiv Kiran Properties is a premier real estate consultancy specializing in the rapidly developing "3rd Mumbai" region. With over 15 years of experience, we help investors and families find high-potential plots in Uran, Ranjanpada, and Pen.
             </p>
             
             <div className="space-y-6 mb-10">
@@ -420,16 +457,16 @@ export const About = () => {
 
 export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
-    type: 'Residential - Buy',
     message: ''
   });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!acceptedTerms) return;
     
     // 1. Send Email via API
     try {
@@ -437,11 +474,7 @@ export const Contact = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          type: formData.type,
-          message: formData.message,
+          ...formData,
           source: 'Contact Form'
         }),
       });
@@ -469,7 +502,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Call Us</div>
-                  <div className="text-xl font-bold">+91 95525 30570</div>
+                  <div className="text-xl font-bold">+91 8411 96 9080</div>
                 </div>
               </div>
               
@@ -537,30 +570,6 @@ export const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold mb-2">Email Address</label>
-                  <input 
-                    required
-                    type="email" 
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20" 
-                    placeholder="john@example.com" 
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Property Type</label>
-                  <select 
-                    value={formData.type}
-                    onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                    className="w-full px-5 py-4 bg-stone-50 border border-stone-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
-                  >
-                    <option>Residential - Buy</option>
-                    <option>Residential - Rent</option>
-                    <option>Commercial - Buy</option>
-                    <option>Commercial - Rent</option>
-                  </select>
-                </div>
-                <div>
                   <label className="block text-sm font-bold mb-2">Message</label>
                   <textarea 
                     rows={4} 
@@ -570,9 +579,29 @@ export const Contact = () => {
                     placeholder="Tell us what you're looking for..."
                   ></textarea>
                 </div>
+
+                <div className="flex items-start gap-3">
+                  <input 
+                    type="checkbox" 
+                    id="terms-contact"
+                    required
+                    checked={acceptedTerms}
+                    onChange={(e) => setAcceptedTerms(e.target.checked)}
+                    className="mt-1.5 w-4 h-4 text-emerald-600 border-stone-300 rounded focus:ring-emerald-500"
+                  />
+                  <label htmlFor="terms-contact" className="text-sm text-stone-500 leading-relaxed">
+                    I accept the <Link to="/terms" target="_blank" className="text-emerald-600 hover:underline">Terms and Conditions</Link> & <Link to="/privacy" target="_blank" className="text-emerald-600 hover:underline">Privacy Policy</Link>. I agree to receive all updates via SMS, WhatsApp, RCS, Email, and any other communication channel.
+                  </label>
+                </div>
+
                 <button 
                   type="submit"
-                  className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg"
+                  disabled={!acceptedTerms}
+                  className={`w-full py-5 rounded-2xl font-bold text-lg transition-all shadow-lg ${
+                    acceptedTerms 
+                      ? 'bg-emerald-600 text-white hover:bg-emerald-700' 
+                      : 'bg-stone-200 text-stone-400 cursor-not-allowed'
+                  }`}
                 >
                   Send Message
                 </button>
@@ -609,17 +638,18 @@ export const Footer = () => {
               <li><a href="/#properties" className="hover:text-emerald-600 transition-colors">Properties</a></li>
               <li><a href="/#about" className="hover:text-emerald-600 transition-colors">About Us</a></li>
               <li><Link to="/privacy" className="hover:text-emerald-600 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-emerald-600 transition-colors">Terms & Conditions</Link></li>
               <li><a href="/#contact" className="hover:text-emerald-600 transition-colors">Contact</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold mb-6">Property Types</h4>
+            <h4 className="font-bold mb-6">Plot Types</h4>
             <ul className="space-y-4 text-stone-500">
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Apartments</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Luxury Villas</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Office Spaces</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Retail Stores</a></li>
+              <li><a href="#" className="hover:text-emerald-600 transition-colors">Residential Plots</a></li>
+              <li><a href="#" className="hover:text-emerald-600 transition-colors">Commercial Plots</a></li>
+              <li><a href="#" className="hover:text-emerald-600 transition-colors">Industrial Land</a></li>
+              <li><a href="#" className="hover:text-emerald-600 transition-colors">Farmhouse Plots</a></li>
             </ul>
           </div>
           
@@ -647,6 +677,7 @@ export const EnquiryPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosedManually, setIsClosedManually] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -658,13 +689,14 @@ export const EnquiryPopup = () => {
       if (!isClosedManually) {
         setIsVisible(true);
       }
-    }, 30000); // 30 seconds
+    }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, [isClosedManually]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!acceptedTerms) return;
     
     // 1. Send Email via API
     try {
@@ -672,9 +704,7 @@ export const EnquiryPopup = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          message: formData.message,
+          ...formData,
           source: 'Enquiry Popup'
         }),
       });
@@ -727,7 +757,7 @@ export const EnquiryPopup = () => {
                       <Mail className="text-emerald-600 w-8 h-8" />
                     </div>
                     <h2 className="text-3xl font-display font-bold text-stone-900">Enquire Now</h2>
-                    <p className="text-stone-500 mt-2">Get personalized property recommendations today!</p>
+                    <p className="text-stone-500 mt-2">Get personalized plot recommendations in 3rd Mumbai today!</p>
                   </div>
 
                   <form className="space-y-4" onSubmit={handleSubmit}>
@@ -763,15 +793,35 @@ export const EnquiryPopup = () => {
                         placeholder="I am interested in..."
                       ></textarea>
                     </div>
+
+                    <div className="flex items-start gap-3">
+                      <input 
+                        type="checkbox" 
+                        id="terms-popup"
+                        required
+                        checked={acceptedTerms}
+                        onChange={(e) => setAcceptedTerms(e.target.checked)}
+                        className="mt-1 w-4 h-4 text-emerald-600 border-stone-300 rounded focus:ring-emerald-500"
+                      />
+                      <label htmlFor="terms-popup" className="text-xs text-stone-500 leading-relaxed">
+                        I accept the <Link to="/terms" target="_blank" className="text-emerald-600 hover:underline">Terms and Conditions</Link> & <Link to="/privacy" target="_blank" className="text-emerald-600 hover:underline">Privacy Policy</Link>. I agree to receive all updates via SMS, WhatsApp, RCS, Email, and any other communication channel.
+                      </label>
+                    </div>
+
                     <button 
                       type="submit"
-                      className="w-full bg-emerald-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-emerald-700 transition-all shadow-lg mt-2"
+                      disabled={!acceptedTerms}
+                      className={`w-full py-4 rounded-2xl font-bold text-lg transition-all shadow-lg mt-2 ${
+                        acceptedTerms 
+                          ? 'bg-emerald-600 text-white hover:bg-emerald-700' 
+                          : 'bg-stone-200 text-stone-400 cursor-not-allowed'
+                      }`}
                     >
                       Submit Enquiry
                     </button>
                   </form>
 
-                  <div className="mt-6 text-center">
+                  <div className="mt-6 text-center flex justify-center gap-4">
                     <Link 
                       to="/privacy" 
                       onClick={() => {
@@ -781,6 +831,16 @@ export const EnquiryPopup = () => {
                       className="text-stone-400 text-xs hover:text-emerald-600 transition-colors underline underline-offset-4"
                     >
                       Privacy Policy
+                    </Link>
+                    <Link 
+                      to="/terms" 
+                      onClick={() => {
+                        setIsVisible(false);
+                        setIsClosedManually(true);
+                      }}
+                      className="text-stone-400 text-xs hover:text-emerald-600 transition-colors underline underline-offset-4"
+                    >
+                      Terms & Conditions
                     </Link>
                   </div>
                 </>

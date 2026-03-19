@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Navbar, Hero, PropertyGrid, About, Contact, Footer, EnquiryPopup } from './components/RealEstate';
+import { Navbar, Hero, PropertyGrid, About, Contact, Footer, EnquiryPopup, Developments } from './components/RealEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsAndConditions from './pages/TermsAndConditions';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -27,6 +28,7 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <Developments />
         <PropertyGrid />
         <About />
         <Contact />
@@ -44,6 +46,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
       </Routes>
     </BrowserRouter>
   );

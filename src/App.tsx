@@ -27,31 +27,33 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
     <div className="min-h-screen">
       <Navbar />
       <main className="pt-20">
-        <div className="relative w-full overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop" 
-            alt="Invest in Mumbai 3.0 - Plotting Opportunities" 
-            className="w-full h-auto block"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">INVEST IN MUMBAI 3.0</h2>
-              <p className="text-xl md:text-2xl font-medium">The Future of Smart Land Investment</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="relative w-full overflow-hidden rounded-[40px] shadow-2xl mb-8">
+            <img 
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop" 
+              alt="Invest in Mumbai 3.0 - Plotting Opportunities" 
+              className="w-full h-[400px] md:h-[600px] object-cover block"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              <div className="text-center text-white px-4">
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-4 tracking-tight">INVEST IN MUMBAI 3.0</h2>
+                <p className="text-xl md:text-2xl font-medium opacity-90">The Future of Smart Land Investment</p>
+              </div>
             </div>
           </div>
           
-          {/* Action Buttons */}
-          <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 flex flex-col sm:flex-row gap-4 z-10">
+          {/* Action Buttons - Moved below image with proper spacing */}
+          <div className="flex flex-col sm:flex-row gap-4">
             <button 
               onClick={() => onOpenPopup("SITE VISIT")}
-              className="bg-emerald-600 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-lg flex items-center justify-center gap-2 text-sm md:text-base"
+              className="bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-lg flex items-center justify-center gap-2 text-base md:text-lg"
             >
               BOOK FREE SITE VISIT
             </button>
             <button 
               onClick={() => onOpenPopup("DOWNLOAD BROCHUR")}
-              className="bg-white text-stone-900 px-6 py-3.5 rounded-xl font-bold hover:bg-stone-50 transition-all shadow-lg flex items-center justify-center gap-2 text-sm md:text-base border border-stone-200"
+              className="bg-white text-stone-900 px-8 py-4 rounded-2xl font-bold hover:bg-stone-50 transition-all shadow-lg flex items-center justify-center gap-2 text-base md:text-lg border border-stone-200"
             >
               DOWNLOAD BROCHUR
             </button>

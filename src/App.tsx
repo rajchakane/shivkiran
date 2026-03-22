@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Building2, Landmark, Map, ShieldCheck } from 'lucide-react';
 import { Navbar, Hero, PropertyGrid, About, Contact, Footer, EnquiryPopup, Developments } from './components/RealEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
@@ -57,6 +58,26 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
             >
               DOWNLOAD BROCHUR
             </button>
+          </div>
+
+          {/* Authority Logos Section */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100 pt-12">
+            {[
+              { name: 'Cidco', icon: <Building2 className="w-8 h-8" />, info: 'Planning & Development' },
+              { name: 'MMRDA', icon: <Landmark className="w-8 h-8" />, info: 'Infrastructure Planning' },
+              { name: 'NTDA', icon: <Map className="w-8 h-8" />, info: 'Strategic Development' },
+              { name: 'NAINA', icon: <ShieldCheck className="w-8 h-8" />, info: 'Airport Influential Area' }
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group">
+                <div className="w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center mb-4 border border-emerald-100 group-hover:bg-emerald-600 transition-all duration-300 shadow-sm">
+                  <div className="text-emerald-600 group-hover:text-white transition-colors">
+                    {item.icon}
+                  </div>
+                </div>
+                <h4 className="font-bold text-stone-900 mb-1 uppercase tracking-wider">{item.name}</h4>
+                <p className="text-stone-500 text-xs leading-relaxed font-medium">{item.info}</p>
+              </div>
+            ))}
           </div>
         </div>
         <Hero />

@@ -673,7 +673,17 @@ export const Footer = () => {
   );
 };
 
-export const EnquiryPopup = () => {
+export const EnquiryPopup = ({ 
+  isOpen: propIsOpen, 
+  onClose: propOnClose, 
+  title: propTitle,
+  description: propDescription
+}: { 
+  isOpen?: boolean; 
+  onClose?: () => void; 
+  title?: string;
+  description?: string;
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isClosedManually, setIsClosedManually] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -685,14 +695,30 @@ export const EnquiryPopup = () => {
   });
 
   useEffect(() => {
+    if (propIsOpen !== undefined) {
+      setIsVisible(propIsOpen);
+    }
+  }, [propIsOpen]);
+
+  useEffect(() => {
+    if (isClosedManually) return;
+    
     const timer = setTimeout(() => {
-      if (!isClosedManually) {
+      if (!isClosedManually && propIsOpen === undefined) {
         setIsVisible(true);
       }
     }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
-  }, [isClosedManually]);
+  }, [isClosedManually, propIsOpen]);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    if (propIsOpen === undefined) {
+      setIsClosedManually(true);
+    }
+    if (propOnClose) propOnClose();
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -705,13 +731,12 @@ export const EnquiryPopup = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          source: 'Enquiry Popup'
+          source: propTitle || 'Enquiry Popup'
         }),
       });
       setIsSubmitted(true);
       setTimeout(() => {
-        setIsVisible(false);
-        setIsClosedManually(true);
+        handleClose();
       }, 3000);
     } catch (error) {
       console.error('Error sending email:', error);
@@ -732,10 +757,7 @@ export const EnquiryPopup = () => {
             className="relative w-full max-w-lg bg-white rounded-[40px] shadow-2xl overflow-hidden"
           >
             <button 
-              onClick={() => {
-                setIsVisible(false);
-                setIsClosedManually(true);
-              }}
+              onClick={handleClose}
               className="absolute top-6 right-6 p-2 bg-stone-100 rounded-full text-stone-500 hover:bg-stone-200 transition-colors z-10"
             >
               <X className="w-5 h-5" />
@@ -756,8 +778,8 @@ export const EnquiryPopup = () => {
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-2xl mb-4">
                       <Mail className="text-emerald-600 w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-display font-bold text-stone-900">Enquire Now</h2>
-                    <p className="text-stone-500 mt-2">Get personalized plot recommendations in 3rd Mumbai today!</p>
+                    <h2 className="text-3xl font-display font-bold text-stone-900">{propTitle || "Enquire Now"}</h2>
+                    <p className="text-stone-500 mt-2">{propDescription || "Get personalized plot recommendations in 3rd Mumbai today!"}</p>
                   </div>
 
                   <form className="space-y-4" onSubmit={handleSubmit}>

@@ -58,10 +58,10 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
             ))}
           </div>
         </div>
+        <Developments />
         <About />
         <PlotLocations />
         <Hero />
-        <Developments />
         {/* <PropertyGrid /> */}
         <Contact />
       </main>

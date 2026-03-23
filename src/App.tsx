@@ -38,24 +38,8 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          {/* Action Buttons - Moved below image with proper spacing */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button 
-              onClick={() => onOpenPopup("SITE VISIT")}
-              className="bg-emerald-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-lg flex items-center justify-center gap-2 text-base md:text-lg"
-            >
-              BOOK FREE SITE VISIT
-            </button>
-            <button 
-              onClick={() => onOpenPopup("DOWNLOAD BROCHUR")}
-              className="bg-white text-stone-900 px-8 py-4 rounded-2xl font-bold hover:bg-stone-50 transition-all shadow-lg flex items-center justify-center gap-2 text-base md:text-lg border border-stone-200"
-            >
-              DOWNLOAD BROCHUR
-            </button>
-          </div>
-
           {/* Authority Logos Section */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100 pt-12">
+          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100 pt-12">
             {[
               { name: 'Cidco', icon: <Building2 className="w-8 h-8" />, info: 'Planning & Development' },
               { name: 'MMRDA', icon: <Landmark className="w-8 h-8" />, info: 'Infrastructure Planning' },

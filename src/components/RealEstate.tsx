@@ -848,11 +848,13 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="bg-emerald-600 p-2 rounded-lg">
-                <Home className="text-white w-5 h-5" />
-              </div>
-              <span className="text-xl font-display font-bold tracking-tight">ShivKiran<span className="text-emerald-600">Properties</span></span>
+            <div className="flex items-center mb-6">
+              <img 
+                src="https://picsum.photos/seed/shivkiran-brand/400/100" 
+                alt="ShivKiran Properties" 
+                className="h-10 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <p className="text-stone-500 leading-relaxed">
               Your trusted partner in finding the perfect property. We make real estate simple and transparent.

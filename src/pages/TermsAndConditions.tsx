@@ -1,5 +1,5 @@
 import { Navbar, Footer } from '../components/RealEstate';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { FileText, Shield, Info, Globe, MessageSquare, Scale, RefreshCw } from 'lucide-react';
 
 export default function TermsAndConditions() {

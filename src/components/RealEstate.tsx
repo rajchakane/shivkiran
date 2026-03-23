@@ -1,6 +1,6 @@
 import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight, ShieldCheck, Target, Eye, Heart, Award, Trees, Factory, Briefcase } from 'lucide-react';
 import { useState, useEffect, FormEvent } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Types
@@ -850,7 +850,7 @@ export const Footer = () => {
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src="\assets\images\logo.png" 
+                src="/assets/images/logo.png" 
                 alt="ShivKiran Properties" 
                 className="w-auto object-contain"
                 referrerPolicy="no-referrer"

@@ -71,7 +71,7 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
 }
 
 export default function App() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean | undefined>(undefined);
   const [popupTitle, setPopupTitle] = useState("Enquire Now");
 
   const handleOpenPopup = (title: string) => {

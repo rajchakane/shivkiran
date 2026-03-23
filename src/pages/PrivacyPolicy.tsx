@@ -1,5 +1,5 @@
 import { Navbar, Footer } from '../components/RealEstate';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Shield, Lock, Eye, FileText, Globe, Mail } from 'lucide-react';
 
 export default function PrivacyPolicy() {

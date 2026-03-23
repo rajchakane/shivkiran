@@ -1,4 +1,4 @@
-import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight } from 'lucide-react';
+import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight, ShieldCheck, Target, Eye, Heart, Award, Trees, Factory, Briefcase } from 'lucide-react';
 import { useState, useEffect, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -104,7 +104,7 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Home</Link>
             <a href="/#developments" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Developments</a>
-            <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Plots</a>
+            {/* <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Plots</a> */}
             <a href="/#about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About</a>
             <a href="/#contact" className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg">Contact Us</a>
           </div>
@@ -127,7 +127,7 @@ export const Navbar = () => {
           >
             <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
             <a href="/#developments" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Developments</a>
-            <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Plots</a>
+            {/* <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Plots</a> */}
             <a href="/#about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About</a>
             <a href="/#contact" className="block bg-emerald-600 text-white px-6 py-3 rounded-xl text-center font-medium" onClick={() => setIsOpen(false)}>Contact Us</a>
           </motion.div>
@@ -188,7 +188,7 @@ export const Hero = () => {
               </div>
               <div className="w-px h-10 bg-stone-200" />
               <div>
-                <div className="text-3xl font-bold font-display">10+</div>
+                <div className="text-3xl font-bold font-display">15+</div>
                 <div className="text-stone-500 text-sm">Years in 3rd Mumbai</div>
               </div>
             </div>
@@ -401,54 +401,280 @@ export const Developments = () => {
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 overflow-hidden">
+    <section id="about" className="py-24 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        {/* About Us Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="relative">
-            <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" 
-                alt="Our Office" 
-                className="w-full h-[500px] object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="rounded-3xl overflow-hidden shadow-lg h-64"
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" 
+                    alt="Land Development" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="rounded-3xl overflow-hidden shadow-lg h-48 bg-emerald-600 flex items-center justify-center p-8 text-white text-center"
+                >
+                  <div>
+                    <div className="text-4xl font-bold mb-2">15+</div>
+                    <div className="text-sm font-medium opacity-90 uppercase tracking-wider">Years of Trust</div>
+                  </div>
+                </motion.div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="rounded-3xl overflow-hidden shadow-lg h-48 bg-stone-900 flex items-center justify-center p-8 text-white text-center"
+                >
+                  <div>
+                    <div className="text-4xl font-bold mb-2">500+</div>
+                    <div className="text-sm font-medium opacity-90 uppercase tracking-wider">Happy Families</div>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="rounded-3xl overflow-hidden shadow-lg h-64"
+                >
+                  <img 
+                    src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=600" 
+                    alt="Commercial Plot" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+              </div>
             </div>
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-emerald-100 rounded-full -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-stone-200 rounded-[40px] -z-10" />
-            
-            <div className="absolute top-1/2 -right-12 -translate-y-1/2 bg-white p-8 rounded-3xl shadow-xl hidden md:block">
-              <div className="text-4xl font-bold text-emerald-600 mb-1">15+</div>
-              <div className="text-stone-500 font-medium">Years of Excellence</div>
-            </div>
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-emerald-100 rounded-full -z-10 blur-2xl" />
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-stone-100 rounded-full -z-10 blur-2xl" />
           </div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">About Us</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">Your Gateway to 3rd Mumbai Real Estate</h2>
-            <p className="text-stone-600 text-lg mb-8 leading-relaxed">
-              Shiv Kiran Properties is a premier real estate consultancy specializing in the rapidly developing "3rd Mumbai" region. With over 15 years of experience, we help investors and families find high-potential plots in Uran, Ranjanpada, and Pen.
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-stone-900">
+              Leading the Way in <span className="text-emerald-600">Mumbai 3.0</span> Real Estate
+            </h2>
+            <p className="text-stone-600 text-lg mb-6 leading-relaxed">
+              At Shiv Kiran Properties, we believe that land is the most valuable asset one can own. We have dedicated ourselves to providing premium plotting solutions in the heart of Mumbai 3.0, focusing on the high-growth corridors of Uran, Ranjanpada, and Pen.
+            </p>
+            <p className="text-stone-600 text-lg mb-10 leading-relaxed">
+              Our expertise lies in ensuring that every plot we offer is not just a piece of land, but a foundation for your future dreams. We prioritize legal clarity, NA/Collector approvals, and strategic locations near upcoming mega-projects like the Navi Mumbai International Airport and MTHL.
             </p>
             
-            <div className="space-y-6 mb-10">
+            <div className="grid sm:grid-cols-2 gap-6 mb-12">
               {[
-                'Expert guidance for first-time buyers',
-                'Exclusive commercial listings in prime hubs',
-                'Transparent legal and documentation support',
-                'Personalized property matching service'
+                { title: 'Legal Transparency', desc: 'Clear titles and NA/Collector approved plots.' },
+                { title: 'Strategic Locations', desc: 'Plots near Airport, MTHL, and upcoming SEZs.' },
+                { title: 'Customer First', desc: 'Personalized guidance from site visit to registration.' },
+                { title: 'Future Growth', desc: 'High appreciation potential in 3rd Mumbai.' }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="bg-emerald-100 p-1 rounded-full">
-                    <ChevronRight className="text-emerald-600 w-4 h-4" />
+                <div key={i} className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center">
+                    <ShieldCheck className="text-emerald-600 w-5 h-5" />
                   </div>
-                  <span className="font-semibold text-stone-800">{item}</span>
+                  <div>
+                    <h4 className="font-bold text-stone-900 mb-1">{item.title}</h4>
+                    <p className="text-stone-500 text-sm leading-snug">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
+          </motion.div>
+        </div>
 
-            <button className="bg-stone-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-emerald-600 transition-all shadow-lg">
-              Learn More About Us
-            </button>
-          </div>
+        {/* Mission, Vision, Values Section */}
+        <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-stone-50 p-10 rounded-[40px] border border-stone-100 hover:shadow-xl transition-all group"
+          >
+            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
+              <Target className="text-emerald-600 w-8 h-8 group-hover:text-white transition-colors" />
+            </div>
+            <h3 className="text-2xl font-bold text-stone-900 mb-4">Our Mission</h3>
+            <p className="text-stone-600 leading-relaxed">
+              To empower individuals and businesses with high-potential land investments in the Mumbai 3.0 region, ensuring absolute transparency, legal security, and sustainable growth for every stakeholder.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-stone-900 p-10 rounded-[40px] text-white hover:shadow-xl transition-all group"
+          >
+            <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
+              <Eye className="text-white w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+            <p className="text-stone-300 leading-relaxed">
+              To be the most trusted name in real estate development in the 3rd Mumbai corridor, transforming landscapes into thriving communities and secure investment hubs for generations to come.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-stone-50 p-10 rounded-[40px] border border-stone-100 hover:shadow-xl transition-all group"
+          >
+            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
+              <Heart className="text-emerald-600 w-8 h-8 group-hover:text-white transition-colors" />
+            </div>
+            <h3 className="text-2xl font-bold text-stone-900 mb-4">Our Values</h3>
+            <div className="space-y-4">
+              {[
+                { label: 'Integrity', text: 'Unwavering commitment to legal clarity.' },
+                { label: 'Innovation', text: 'Strategic insights for growth corridors.' },
+                { label: 'Customer First', text: 'Putting your future at our heart.' }
+              ].map((v, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <Award className="w-5 h-5 text-emerald-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <span className="font-bold text-stone-900 block text-sm">{v.label}</span>
+                    <span className="text-stone-500 text-xs">{v.text}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const PlotLocations = () => {
+  return (
+    <section id="locations" className="py-24 bg-stone-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Reach</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Plot Location & Categories</h2>
+          <p className="text-stone-600 max-w-2xl mx-auto text-lg">
+            Strategically located plots across the fastest-growing corridors of Maharashtra, designed to meet diverse residential, commercial, and industrial needs.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <div className="bg-white p-8 rounded-[40px] shadow-sm border border-stone-100">
+              <h3 className="text-2xl font-bold text-stone-900 mb-6 flex items-center gap-3">
+                <Award className="text-emerald-600 w-6 h-6" /> Available Categories
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { name: 'Residential', icon: <Home className="w-5 h-5" />, desc: 'Perfect for your dream home.' },
+                  { name: 'Commercial', icon: <Briefcase className="w-5 h-5" />, desc: 'High-visibility business hubs.' },
+                  { name: 'Agricultural', icon: <Trees className="w-5 h-5" />, desc: 'Fertile land for long-term value.' },
+                  { name: 'MIDC', icon: <Factory className="w-5 h-5" />, desc: 'Industrial plots with connectivity.' }
+                ].map((cat, i) => (
+                  <div key={i} className="p-6 bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-colors">
+                    <div className="text-emerald-600 mb-3">{cat.icon}</div>
+                    <h4 className="font-bold text-stone-900 mb-1">{cat.name}</h4>
+                    <p className="text-stone-500 text-xs leading-relaxed">{cat.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-[40px] shadow-sm border border-stone-100">
+              <h3 className="text-2xl font-bold text-stone-900 mb-6 flex items-center gap-3">
+                <ShieldCheck className="text-emerald-600 w-6 h-6" /> Premium Features
+              </h3>
+              <div className="grid grid-cols-2 gap-y-4">
+                {[
+                  'Gated Community', 'Internal Roads', 'Water Supply', 
+                  'Electricity', '24/7 Security', 'Plantation',
+                  'Street Lights', 'Drainage System'
+                ].map((f, i) => (
+                  <div key={i} className="flex items-center gap-3 text-stone-700 font-medium">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full" />
+                    {f}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <div className="bg-stone-900 p-10 rounded-[40px] text-white relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-600/20 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-emerald-600/40 transition-all" />
+              <h4 className="font-bold text-emerald-400 text-sm mb-6 uppercase tracking-widest flex items-center gap-2">
+                <MapPin className="w-4 h-4" /> Mumbai 3.0 Sites
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                {['Uran', 'Ranjanpada', 'Pen', 'Chirner', 'Jasai', 'Dronagiri', 'Ulwe', 'Kharghar'].map((site, i) => (
+                  <div key={i} className="flex items-center gap-2 text-stone-300 hover:text-white transition-colors cursor-default">
+                    <ChevronRight className="w-4 h-4 text-emerald-500" />
+                    <span className="font-medium">{site}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-emerald-600 p-10 rounded-[40px] text-white relative overflow-hidden group">
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16 blur-3xl group-hover:bg-white/20 transition-all" />
+              <h4 className="font-bold text-white text-sm mb-6 uppercase tracking-widest flex items-center gap-2">
+                <MapPin className="w-4 h-4" /> Pune Region Sites
+              </h4>
+              <div className="grid grid-cols-2 gap-4">
+                {['Hinjewadi', 'Lonavala', 'Chakan', 'Talegaon', 'Wagholi', 'Pirangut', 'Hadapsar', 'Baner'].map((site, i) => (
+                  <div key={i} className="flex items-center gap-2 text-emerald-50 hover:text-white transition-colors cursor-default">
+                    <ChevronRight className="w-4 h-4 text-white/60" />
+                    <span className="font-medium">{site}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-[40px] border border-stone-200 flex items-center justify-between group cursor-pointer hover:border-emerald-600 transition-all">
+              <div>
+                <h4 className="font-bold text-stone-900 mb-1">Looking for a specific location?</h4>
+                <p className="text-stone-500 text-sm">Our experts can help you find the perfect plot.</p>
+              </div>
+              <div className="w-12 h-12 bg-stone-900 rounded-2xl flex items-center justify-center group-hover:bg-emerald-600 transition-all">
+                <ArrowRight className="text-white w-6 h-6" />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -93,11 +93,13 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex items-center gap-2">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="bg-emerald-600 p-2 rounded-lg">
-                <Home className="text-white w-6 h-6" />
-              </div>
-              <span className="text-2xl font-display font-bold tracking-tight">ShivKiran<span className="text-emerald-600">Properties</span></span>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="https://picsum.photos/seed/shivkiran-brand/400/100" 
+                alt="ShivKiran Properties" 
+                className="h-10 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </Link>
           </div>
           

@@ -95,7 +95,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center">
               <img 
-                src="\assets\images\logo_landscape.png" 
+                src="/assets/images/logo_landscape.png" 
                 alt="ShivKiran Properties" 
                 className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"

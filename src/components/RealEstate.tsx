@@ -850,7 +850,7 @@ export const Footer = () => {
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
-                src="/assets/images/logo.png" 
+                src="/assets/images/logo.png"
                 alt="ShivKiran Properties" 
                 className="w-auto object-contain"
                 referrerPolicy="no-referrer"

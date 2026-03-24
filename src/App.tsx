@@ -30,7 +30,7 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
       <main className="pt-20">
         <div className="w-full overflow-hidden">
           <img 
-            src="/assets/images/shivkiran.png" 
+            src="/assets/images/shivkiran.png"
             alt="Invest in Mumbai 3.0 - Plotting Opportunities" 
             className="w-full h-auto block"
             referrerPolicy="no-referrer"

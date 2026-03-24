@@ -30,7 +30,7 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
       <main className="pt-20">
         <div className="w-full overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop" 
+            src="/assets/images/shivkiran.png" 
             alt="Invest in Mumbai 3.0 - Plotting Opportunities" 
             className="w-full h-auto block"
             referrerPolicy="no-referrer"
@@ -39,7 +39,7 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Authority Logos Section */}
-          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100 pt-12">
+          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100">
             {[
               { name: 'Cidco', icon: <Building2 className="w-8 h-8" />, info: 'Planning & Development' },
               { name: 'MMRDA', icon: <Landmark className="w-8 h-8" />, info: 'Infrastructure Planning' },

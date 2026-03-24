@@ -95,7 +95,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center">
               <img 
-                src="https://picsum.photos/seed/shivkiran-brand/400/100" 
+                src="\assets\images\logo_landscape.png" 
                 alt="ShivKiran Properties" 
                 className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"
@@ -979,21 +979,21 @@ export const EnquiryPopup = ({
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative w-full max-w-lg bg-white rounded-[40px] shadow-2xl overflow-hidden"
+            className="relative w-full max-w-lg bg-white rounded-[32px] md:rounded-[40px] shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
           >
             <button 
               onClick={handleClose}
-              className="absolute top-6 right-6 p-2 bg-stone-100 rounded-full text-stone-500 hover:bg-stone-200 transition-colors z-10"
+              className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-stone-100/80 backdrop-blur-sm rounded-full text-stone-500 hover:bg-stone-200 transition-colors z-[1001]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="p-8 md:p-10">
+            <div className="overflow-y-auto p-6 md:p-10 custom-scrollbar">
               {isSubmitted ? (
                 <div className="text-center py-10">
                   <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-6">

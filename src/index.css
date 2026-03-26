@@ -19,6 +19,15 @@
   @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }

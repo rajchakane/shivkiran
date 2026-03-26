@@ -1,5 +1,5 @@
-import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronRight, Star, Bed, Bath, Square, ArrowRight, ShieldCheck, Target, Eye, Heart, Award, Trees, Factory, Briefcase } from 'lucide-react';
-import { useState, useEffect, FormEvent } from 'react';
+import { Home, Search, Phone, Mail, MapPin, Menu, X, ChevronLeft, ChevronRight, Star, Bed, Bath, Square, ArrowRight, ShieldCheck, Target, Eye, Heart, Award, Trees, Factory, Briefcase } from 'lucide-react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -353,49 +353,121 @@ export const PropertyGrid = () => {
 };
 
 export const Developments = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
   const developments = [
     {
-      title: "Navi Mumbai International Airport",
+      title: "NMIA (Airport)",
       description: "A world-class airport expected to drive massive economic growth and connectivity in the 3rd Mumbai region.",
-      icon: "✈️"
+      image: "/assets/images/NMIA.png"
     },
     {
       title: "MTHL (Atal Setu)",
       description: "India's longest sea bridge connecting Mumbai to Navi Mumbai, drastically reducing travel time.",
-      icon: "🌉"
+      image: "/assets/images/AtalSetu.png"
     },
     {
       title: "Upcoming IT Hubs & SEZs",
       description: "Strategic development of technology parks and special economic zones in Uran and surrounding areas.",
-      icon: "🏢"
+      image: "/assets/images/ITHubs.png"
     },
     {
       title: "Highways & Infrastructure",
       description: "Expansion of major highways and local road networks to support the growing 3rd Mumbai ecosystem.",
-      icon: "🛣️"
+      image: "/assets/images/highway.png"
     }
   ];
 
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      // The onScroll event will trigger checkScroll
+    }
+  };
+
   return (
-    <section id="developments" className="py-24 bg-white">
+    <section id="developments" className="pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Future Growth</span>
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             <span className="md:hidden">Government Projects</span>
             <span className="hidden md:inline">Government Developments in 3rd Mumbai</span>
           </h2>
-          <p className="text-stone-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-stone-600 mt-4 max-w-2xl mx-auto text-lg">
             The 3rd Mumbai region is witnessing unprecedented infrastructure growth, making it the prime destination for land investment.
           </p>
-        </div>
+          
+          <div className="flex gap-4 justify-center mt-8">
+            <button 
+              onClick={() => scroll('left')}
+              disabled={!canScrollLeft}
+              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all shadow-sm ${
+                canScrollLeft 
+                  ? 'border-stone-200 text-stone-600 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white cursor-pointer' 
+                  : 'border-stone-100 text-stone-300 cursor-not-allowed'
+              }`}
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button 
+              onClick={() => scroll('right')}
+              disabled={!canScrollRight}
+              className={`w-12 h-12 rounded-full border flex items-center justify-center transition-all shadow-sm ${
+                canScrollRight 
+                  ? 'border-stone-200 text-stone-600 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white cursor-pointer' 
+                  : 'border-stone-100 text-stone-300 cursor-not-allowed'
+              }`}
+              aria-label="Next"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div 
+          ref={scrollRef}
+          onScroll={checkScroll}
+          className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
+        >
           {developments.map((dev, i) => (
-            <div key={i} className="p-8 rounded-[32px] bg-stone-50 border border-stone-100 hover:shadow-lg transition-all">
-              <div className="text-4xl mb-6">{dev.icon}</div>
-              <h3 className="text-xl font-bold mb-4">{dev.title}</h3>
-              <p className="text-stone-500 text-sm leading-relaxed">{dev.description}</p>
+            <div key={i} className="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] group overflow-hidden rounded-[32px] hover:shadow-2xl hover:shadow-emerald-900/20 transition-all snap-start">
+              <div className="p-8 bg-stone-700">
+                <h3 className="text-xl font-bold mb-4 text-white">{dev.title}</h3>
+                <p className="text-stone-400 text-sm leading-relaxed mb-6">{dev.description}</p>
+              </div>
+              <div className="h-72 overflow-hidden mt-auto rounded-b-[32px]">
+                <img 
+                  src={dev.image} 
+                  alt={dev.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 rounded-b-[32px]"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
           ))}
         </div>

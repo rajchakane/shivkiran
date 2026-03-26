@@ -4,6 +4,7 @@ import { Building2, Landmark, Map, ShieldCheck } from 'lucide-react';
 import { Navbar, Hero, PropertyGrid, About, PlotLocations, Contact, Footer, EnquiryPopup, Developments } from './components/RealEstate';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
+import AboutUs from './pages/AboutUs';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -59,9 +60,8 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
           </div>
         </div>
         <Developments />
-        <About />
         <PlotLocations />
-        <Hero />
+        {/* <Hero /> */ }
         {/* <PropertyGrid /> */}
         <Contact />
       </main>
@@ -96,6 +96,7 @@ export default function App() {
       />
       <Routes>
         <Route path="/" element={<HomePage onOpenPopup={handleOpenPopup} />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsAndConditions />} />
       </Routes>

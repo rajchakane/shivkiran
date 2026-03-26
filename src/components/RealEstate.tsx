@@ -105,9 +105,9 @@ export const Navbar = () => {
           
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Home</Link>
+            <a href="/#locations" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Plot Location</a>
             <a href="/#developments" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Developments</a>
-            {/* <a href="/#properties" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">Plots</a> */}
-            <a href="/#about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About</a>
+            <Link to="/about" className="text-stone-600 hover:text-emerald-600 font-medium transition-colors">About Us</Link>
             <a href="/#contact" className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-emerald-700 transition-all shadow-md hover:shadow-lg">Contact Us</a>
           </div>
 
@@ -128,9 +128,9 @@ export const Navbar = () => {
             className="md:hidden bg-white border-t border-stone-100 p-4 space-y-4"
           >
             <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
+            <a href="/#locations" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Plot Location</a>
             <a href="/#developments" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Developments</a>
-            {/* <a href="/#properties" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Plots</a> */}
-            <a href="/#about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About</a>
+            <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
             <a href="/#contact" className="block bg-emerald-600 text-white px-6 py-3 rounded-xl text-center font-medium" onClick={() => setIsOpen(false)}>Contact Us</a>
           </motion.div>
         )}
@@ -417,7 +417,7 @@ export const About = () => {
                   className="rounded-3xl overflow-hidden shadow-lg h-64"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" 
+                    src="/assets/images/logo.png"
                     alt="Land Development" 
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -510,13 +510,13 @@ export const About = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-stone-50 p-10 rounded-[40px] border border-stone-100 hover:shadow-xl transition-all group"
+            className="bg-emerald-600 p-10 rounded-[40px] text-white hover:shadow-xl transition-all group"
           >
-            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 transition-colors">
-              <Target className="text-emerald-600 w-8 h-8 group-hover:text-white transition-colors" />
+            <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-700 transition-colors">
+              <Target className="text-emerald-600 w-8 h-8 group-hover:text-emerald-100 transition-colors" />
             </div>
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">Our Mission</h3>
-            <p className="text-stone-600 leading-relaxed">
+            <h3 className="text-2xl font-bold mb-4">Our Mission </h3>
+            <p className="text-stone-300 leading-relaxed">
               To empower individuals and businesses with high-potential land investments in the Mumbai 3.0 region, ensuring absolute transparency, legal security, and sustainable growth for every stakeholder.
             </p>
           </motion.div>
@@ -865,8 +865,9 @@ export const Footer = () => {
             <h4 className="font-bold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-stone-500">
               <li><Link to="/" className="hover:text-emerald-600 transition-colors">Home</Link></li>
-              <li><a href="/#properties" className="hover:text-emerald-600 transition-colors">Properties</a></li>
-              <li><a href="/#about" className="hover:text-emerald-600 transition-colors">About Us</a></li>
+              <li><a href="/#locations" className="hover:text-emerald-600 transition-colors">Plot Location</a></li>
+              <li><a href="/#developments" className="hover:text-emerald-600 transition-colors">Developments</a></li>
+              <li><Link to="/about" className="hover:text-emerald-600 transition-colors">About Us</Link></li>
               <li><Link to="/privacy" className="hover:text-emerald-600 transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-emerald-600 transition-colors">Terms & Conditions</Link></li>
               <li><a href="/#contact" className="hover:text-emerald-600 transition-colors">Contact</a></li>
@@ -876,10 +877,10 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-6">Plot Types</h4>
             <ul className="space-y-4 text-stone-500">
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Residential Plots</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Commercial Plots</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Industrial Land</a></li>
-              <li><a href="#" className="hover:text-emerald-600 transition-colors">Farmhouse Plots</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Residential Plots</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Commercial Plots</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Industrial Land</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Farmhouse Plots</a></li>
             </ul>
           </div>
           

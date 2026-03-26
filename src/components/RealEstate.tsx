@@ -649,7 +649,7 @@ export const PlotLocations = () => {
               <h3 className="text-2xl font-bold text-stone-900 mb-6 flex items-center gap-3">
                 <MapPin className="text-emerald-600 w-6 h-6" /> Mumbai 3.0 Sites
               </h3>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4">
                 {[
                   { name: 'Uran', desc: 'Strategic coastal hub.', image: '/assets/images/residential.png' },
                   { name: 'Ranjanpada', desc: 'Rapidly developing node.', image: '/assets/images/residential.png' },

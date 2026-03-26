@@ -381,7 +381,10 @@ export const Developments = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Future Growth</span>
-          <h2 className="text-4xl md:text-5xl font-bold">Government Developments in 3rd Mumbai</h2>
+          <h2 className="text-4xl md:text-5xl font-bold">
+            <span className="md:hidden">Government Projects</span>
+            <span className="hidden md:inline">Government Developments in 3rd Mumbai</span>
+          </h2>
           <p className="text-stone-600 mt-4 max-w-2xl mx-auto">
             The 3rd Mumbai region is witnessing unprecedented infrastructure growth, making it the prime destination for land investment.
           </p>
@@ -585,95 +588,94 @@ export const PlotLocations = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <div className="bg-white p-8 rounded-[40px] shadow-sm border border-stone-100">
+            <div className="bg-white p-6 md:p-8 rounded-[40px] shadow-sm border border-stone-100">
               <h3 className="text-2xl font-bold text-stone-900 mb-6 flex items-center gap-3">
-                <Award className="text-emerald-600 w-6 h-6" /> Available Categories
+                <Award className="text-emerald-600 w-6 h-6" /> Available Plotting
               </h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                 {[
-                  { name: 'Residential', icon: <Home className="w-5 h-5" />, desc: 'Perfect for your dream home.' },
-                  { name: 'Commercial', icon: <Briefcase className="w-5 h-5" />, desc: 'High-visibility business hubs.' },
-                  { name: 'Agricultural', icon: <Trees className="w-5 h-5" />, desc: 'Fertile land for long-term value.' },
-                  { name: 'MIDC', icon: <Factory className="w-5 h-5" />, desc: 'Industrial plots with connectivity.' }
+                  { 
+                    name: 'Residential', 
+                    icon: <Home className="w-5 h-5" />, 
+                    desc: 'Perfect for your dream home.',
+                    image: '/assets/images/residential.png'
+                  },
+                  { 
+                    name: 'Commercial', 
+                    icon: <Briefcase className="w-5 h-5" />, 
+                    desc: 'High-visibility business hubs.',
+                    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400'
+                  },
+                  { 
+                    name: 'Agricultural', 
+                    icon: <Trees className="w-5 h-5" />, 
+                    desc: 'Fertile land for long-term value.',
+                    image: '/assets/images/agri.png'
+                  },
+                  { 
+                    name: 'MIDC', 
+                    icon: <Factory className="w-5 h-5" />, 
+                    desc: 'Industrial plots with connectivity.',
+                    image: '/assets/images/MIDC.png'
+                  }
                 ].map((cat, i) => (
-                  <div key={i} className="p-6 bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-colors">
-                    <div className="text-emerald-600 mb-3">{cat.icon}</div>
-                    <h4 className="font-bold text-stone-900 mb-1">{cat.name}</h4>
-                    <p className="text-stone-500 text-xs leading-relaxed">{cat.desc}</p>
+                  <div key={i} className="group relative bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-all overflow-hidden aspect-[3/4]">
+                    <img 
+                      src={cat.image} 
+                      alt={cat.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-4 md:p-6">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-emerald-400">{cat.icon}</div>
+                        <h4 className="font-bold text-white text-sm md:text-base">{cat.name}</h4>
+                      </div>
+                      <p className="text-stone-200 text-[10px] md:text-xs leading-relaxed line-clamp-2">{cat.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-[40px] shadow-sm border border-stone-100">
+            <div className="bg-white p-6 md:p-8 rounded-[40px] shadow-sm border border-stone-100">
               <h3 className="text-2xl font-bold text-stone-900 mb-6 flex items-center gap-3">
-                <ShieldCheck className="text-emerald-600 w-6 h-6" /> Premium Features
+                <MapPin className="text-emerald-600 w-6 h-6" /> Mumbai 3.0 Sites
               </h3>
-              <div className="grid grid-cols-2 gap-y-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                 {[
-                  'Gated Community', 'Internal Roads', 'Water Supply', 
-                  'Electricity', '24/7 Security', 'Plantation',
-                  'Street Lights', 'Drainage System'
-                ].map((f, i) => (
-                  <div key={i} className="flex items-center gap-3 text-stone-700 font-medium">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full" />
-                    {f}
+                  { name: 'Uran', desc: 'Strategic coastal hub.', image: '/assets/images/residential.png' },
+                  { name: 'Ranjanpada', desc: 'Rapidly developing node.', image: '/assets/images/residential.png' },
+                  { name: 'Pen', desc: 'Gateway to growth.', image: '/assets/images/residential.png' },
+                  { name: 'Chirner', desc: 'Green investment zone.', image: '/assets/images/residential.png' },
+                  { name: 'Jasai', desc: 'Connectivity at its best.', image: '/assets/images/residential.png' },
+                  { name: 'Dronagiri', desc: 'Future smart city.', image: '/assets/images/residential.png' },
+                  { name: 'Ulwe', desc: 'Modern urban living.', image: '/assets/images/residential.png' },
+                  { name: 'Kharghar', desc: 'Premium residential hub.', image: '/assets/images/residential.png' }
+                ].map((site, i) => (
+                  <div key={i} className="group relative bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-all overflow-hidden aspect-[3/4]">
+                    <img 
+                      src={site.image} 
+                      alt={site.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-4 md:p-6">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-emerald-400"><MapPin className="w-4 h-4" /></div>
+                        <h4 className="font-bold text-white text-sm md:text-base">{site.name}</h4>
+                      </div>
+                      <p className="text-stone-200 text-[10px] md:text-xs leading-relaxed line-clamp-2">{site.desc}</p>
+                    </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="bg-stone-900 p-10 rounded-[40px] text-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-600/20 rounded-full -mr-16 -mt-16 blur-3xl group-hover:bg-emerald-600/40 transition-all" />
-              <h4 className="font-bold text-emerald-400 text-sm mb-6 uppercase tracking-widest flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> Mumbai 3.0 Sites
-              </h4>
-              <div className="grid grid-cols-2 gap-4">
-                {['Uran', 'Ranjanpada', 'Pen', 'Chirner', 'Jasai', 'Dronagiri', 'Ulwe', 'Kharghar'].map((site, i) => (
-                  <div key={i} className="flex items-center gap-2 text-stone-300 hover:text-white transition-colors cursor-default">
-                    <ChevronRight className="w-4 h-4 text-emerald-500" />
-                    <span className="font-medium">{site}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-emerald-600 p-10 rounded-[40px] text-white relative overflow-hidden group">
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16 blur-3xl group-hover:bg-white/20 transition-all" />
-              <h4 className="font-bold text-white text-sm mb-6 uppercase tracking-widest flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> Pune Region Sites
-              </h4>
-              <div className="grid grid-cols-2 gap-4">
-                {['Hinjewadi', 'Lonavala', 'Chakan', 'Talegaon', 'Wagholi', 'Pirangut', 'Hadapsar', 'Baner'].map((site, i) => (
-                  <div key={i} className="flex items-center gap-2 text-emerald-50 hover:text-white transition-colors cursor-default">
-                    <ChevronRight className="w-4 h-4 text-white/60" />
-                    <span className="font-medium">{site}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white p-8 rounded-[40px] border border-stone-200 flex items-center justify-between group cursor-pointer hover:border-emerald-600 transition-all">
-              <div>
-                <h4 className="font-bold text-stone-900 mb-1">Looking for a specific location?</h4>
-                <p className="text-stone-500 text-sm">Our experts can help you find the perfect plot.</p>
-              </div>
-              <div className="w-12 h-12 bg-stone-900 rounded-2xl flex items-center justify-center group-hover:bg-emerald-600 transition-all">
-                <ArrowRight className="text-white w-6 h-6" />
               </div>
             </div>
           </motion.div>
@@ -714,49 +716,49 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-stone-900 text-white">
+    <section id="contact" className="py-16 md:py-24 bg-stone-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Let's Find Your Next Property Together</h2>
-            <p className="text-stone-400 text-lg mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8">Let's Find Your Next Property Together</h2>
+            <p className="text-stone-400 text-base md:text-lg mb-8 md:mb-12">
               Have questions about a property or need expert advice? Our team is ready to help you navigate the real estate market.
             </p>
             
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="bg-white/10 p-4 rounded-2xl">
-                  <Phone className="text-emerald-400 w-6 h-6" />
+            <div className="space-y-6 md:space-y-8">
+              <div className="flex items-start gap-4 md:gap-6">
+                <div className="bg-white/10 p-3 md:p-4 rounded-2xl">
+                  <Phone className="text-emerald-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Call Us</div>
-                  <div className="text-xl font-bold">+91 8411 96 9080</div>
+                  <div className="text-stone-400 text-xs md:text-sm mb-1 uppercase tracking-wider">Call Us</div>
+                  <div className="text-lg md:text-xl font-bold">+91 8411 96 9080</div>
                 </div>
               </div>
               
-              <div className="flex items-start gap-6">
-                <div className="bg-white/10 p-4 rounded-2xl">
-                  <Mail className="text-emerald-400 w-6 h-6" />
+              <div className="flex items-start gap-4 md:gap-6">
+                <div className="bg-white/10 p-3 md:p-4 rounded-2xl">
+                  <Mail className="text-emerald-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Email Us</div>
-                  <div className="text-xl font-bold">info@shivkiranpropertiees.com</div>
+                  <div className="text-stone-400 text-xs md:text-sm mb-1 uppercase tracking-wider">Email Us</div>
+                  <div className="text-lg md:text-xl font-bold break-all">info@shivkiranpropertiees.com</div>
                 </div>
               </div>
               
-              <div className="flex items-start gap-6">
-                <div className="bg-white/10 p-4 rounded-2xl">
-                  <MapPin className="text-emerald-400 w-6 h-6" />
+              <div className="flex items-start gap-4 md:gap-6">
+                <div className="bg-white/10 p-3 md:p-4 rounded-2xl">
+                  <MapPin className="text-emerald-400 w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <div className="text-stone-400 text-sm mb-1 uppercase tracking-wider">Visit Us</div>
-                  <div className="text-xl font-bold">B 308 Plot No. 13, Kukreja Center, Kokan Bhavan Rd, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614</div>
+                  <div className="text-stone-400 text-xs md:text-sm mb-1 uppercase tracking-wider">Visit Us</div>
+                  <div className="text-lg md:text-xl font-bold">B 308 Plot No. 13, Kukreja Center, Kokan Bhavan Rd, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-[40px] p-8 md:p-12 text-stone-900">
+          <div className="bg-white rounded-[32px] md:rounded-[40px] p-6 md:p-12 text-stone-900">
             {isSubmitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-emerald-100 rounded-full mb-6">
@@ -846,7 +848,7 @@ export const Footer = () => {
   return (
     <footer className="bg-stone-50 pt-20 pb-10 border-t border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center mb-6">
               <img 
@@ -882,17 +884,6 @@ export const Footer = () => {
               <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Industrial Land</a></li>
               <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Farmhouse Plots</a></li>
             </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-6">Newsletter</h4>
-            <p className="text-stone-500 mb-4">Subscribe to get the latest property updates.</p>
-            <div className="flex gap-2">
-              <input type="email" placeholder="Email" className="flex-1 px-4 py-2 bg-white border border-stone-200 rounded-xl focus:outline-none" />
-              <button className="bg-stone-900 text-white p-2 rounded-xl hover:bg-emerald-600 transition-colors">
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
         </div>
         

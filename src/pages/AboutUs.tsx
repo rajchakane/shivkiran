@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar />
       <main className="pt-20">
         {/*<div className="bg-stone-900 py-20 text-white">

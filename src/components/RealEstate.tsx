@@ -158,10 +158,10 @@ export const Hero = () => {
               Real Estate Experts
             </span>
             <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-6">
-              Invest in <span className="text-emerald-600">3rd Mumbai</span> Plotting Opportunities
+              Sell & Invest in <span className="text-emerald-600">3rd Mumbai</span> Plotting Opportunities
             </h1>
             <p className="text-lg text-stone-600 mb-10 max-w-lg leading-relaxed">
-              Discover premium plots in Uran, Ranjanpada, and Pen. Benefit from massive government developments like the Navi Mumbai International Airport, MTHL, and upcoming IT Hubs.
+              Discover premium plots in Uran, Ranjanpada, Pen, Chirner, Jasai, Dronagiri, Ulwe, and Kharghar. Benefit from massive government developments like the Navi Mumbai International Airport and MTHL.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -203,10 +203,18 @@ export const Hero = () => {
             className="relative"
           >
             <div className="relative rounded-[40px] overflow-hidden shadow-2xl">
+              {/* Desktop Image */}
               <img 
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" 
-                alt="Luxury Home" 
-                className="w-full h-[600px] object-cover"
+                alt="Luxury Plotting" 
+                className="hidden md:block w-full h-[600px] object-cover"
+                referrerPolicy="no-referrer"
+              />
+              {/* Mobile Portrait Image */}
+              <img 
+                src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=800&h=1200" 
+                alt="Luxury Plotting Mobile" 
+                className="block md:hidden w-full h-[500px] object-cover"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -654,9 +662,9 @@ export const PlotLocations = () => {
           className="text-center mb-16"
         >
           <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Reach</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Plot Location & Categories</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Plot Location & Categories in 3rd Mumbai</h2>
           <p className="text-stone-600 max-w-2xl mx-auto text-lg">
-            Strategically located plots across the fastest-growing corridors of Maharashtra, designed to meet diverse residential, commercial, and industrial needs.
+            Looking to sell or buy a plot in Mumbai? We offer strategically located plots across Uran, Ranjanpada, Pen, and other fast-growing corridors of Maharashtra.
           </p>
         </motion.div>
 
@@ -735,7 +743,7 @@ export const PlotLocations = () => {
                   <div key={i} className="group relative bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-all overflow-hidden aspect-[3/4]">
                     <img 
                       src={site.image} 
-                      alt={site.name} 
+                      alt= {"plot in " + site.name} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
@@ -949,12 +957,16 @@ export const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold mb-6">Plot Types</h4>
-            <ul className="space-y-4 text-stone-500">
-              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Residential Plots</a></li>
-              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Commercial Plots</a></li>
-              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Industrial Land</a></li>
-              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Farmhouse Plots</a></li>
+            <h4 className="font-bold mb-6">Locations</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-4 text-stone-500">
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Uran</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Ranjanpada</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Pen</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Chirner</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Jasai</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Dronagiri</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Ulwe</a></li>
+              <li><a href="#locations" className="hover:text-emerald-600 transition-colors">Kharghar</a></li>
             </ul>
           </div>
         </div>

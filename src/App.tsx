@@ -30,17 +30,25 @@ function HomePage({ onOpenPopup }: { onOpenPopup: (title: string) => void }) {
       <Navbar />
       <main className="pt-20">
         <div className="w-full overflow-hidden">
+          {/* Desktop Banner */}
           <img 
             src="/assets/images/shivkiran.png"
             alt="Invest in Mumbai 3.0 - Plotting Opportunities" 
-            className="w-full h-auto block min-w-full"
+            className="hidden md:block w-full h-auto min-w-full"
+            referrerPolicy="no-referrer"
+          />
+          {/* Mobile Portrait Banner */}
+          <img 
+            src="/assets/images/shivkiran-p.png"
+            alt="Invest in Mumbai 3.0 - Mobile" 
+            className="block md:hidden w-full h-auto min-w-full"
             referrerPolicy="no-referrer"
           />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {/* Authority Logos Section */}
-          <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100">
+          <div className="mt-1 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-stone-100">
             {[
               { name: 'Cidco', icon: <Building2 className="w-8 h-8" />, info: 'Planning & Development' },
               { name: 'MMRDA', icon: <Landmark className="w-8 h-8" />, info: 'Infrastructure Planning' },

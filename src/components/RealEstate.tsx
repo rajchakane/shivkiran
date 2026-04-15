@@ -96,7 +96,7 @@ export const Navbar = () => {
             <Link to="/" className="flex items-center">
               <img 
                 src="/assets/images/logo_landscape.png" 
-                alt="ShivKiran Properties" 
+                alt="ShivKiran Propertiees" 
                 className="h-10 w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
@@ -560,7 +560,7 @@ export const About = () => {
               Leading the Way in <span className="text-emerald-600">Mumbai 3.0</span> Real Estate
             </h2>
             <p className="text-stone-600 text-lg mb-6 leading-relaxed">
-              At Shiv Kiran Properties, we believe that land is the most valuable asset one can own. We have dedicated ourselves to providing premium plotting solutions in the heart of Mumbai 3.0, focusing on the high-growth corridors of Uran, Ranjanpada, and Pen.
+              At ShivKiran Propertiees, we believe that land is the most valuable asset one can own. We have dedicated ourselves to providing premium plotting solutions in the heart of Mumbai 3.0, focusing on the high-growth corridors of Uran, Ranjanpada, and Pen.
             </p>
             <p className="text-stone-600 text-lg mb-10 leading-relaxed">
               Our expertise lies in ensuring that every plot we offer is not just a piece of land, but a foundation for your future dreams. We prioritize legal clarity, NA/Collector approvals, and strategic locations near upcoming mega-projects like the Navi Mumbai International Airport and MTHL.
@@ -933,7 +933,7 @@ export const Footer = () => {
             <div className="flex items-center mb-6">
               <img 
                 src="/assets/images/logo.png"
-                alt="ShivKiran Properties" 
+                alt="ShivKiran Propertiees" 
                 className="w-auto object-contain"
                 referrerPolicy="no-referrer"
               />
@@ -972,7 +972,7 @@ export const Footer = () => {
         </div>
         
         <div className="pt-10 border-t border-stone-200 text-center text-stone-400 text-sm">
-          <p>© {new Date().getFullYear()} Shiv Kiran Properties. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ShivKiran Propertiees. All rights reserved.</p>
         </div>
       </div>
     </footer>

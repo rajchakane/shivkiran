@@ -35,7 +35,7 @@ async function startServer() {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'raj.chakane@gmail.com',
-      subject: `New Enquiry from ${source || 'Shiv Kiran Properties'}`,
+      subject: `New Enquiry from ${source || 'ShivKiran Propertiees'}`,
       text: `
         New Enquiry Details:
         -------------------

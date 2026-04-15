@@ -16,7 +16,7 @@ export default function TermsAndConditions() {
             <div className="text-center mb-16">
               <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-4 block">Legal Information</span>
               <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">Terms & Conditions</h1>
-              <p className="text-stone-500 text-lg">Welcome to Shiv Kiran Properties. By accessing or using our website, you agree to comply with the following Terms and Conditions.</p>
+              <p className="text-stone-500 text-lg">Welcome to ShivKiran Propertiees. By accessing or using our website, you agree to comply with the following Terms and Conditions.</p>
             </div>
 
             <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-sm border border-stone-100 space-y-12">
@@ -42,7 +42,7 @@ export default function TermsAndConditions() {
                   <h2 className="text-2xl font-bold">Property Information</h2>
                 </div>
                 <p className="text-stone-600 leading-relaxed">
-                  All property details, images, pricing, and availability are indicative and subject to change without notice. Shiv Kiran Properties does not guarantee accuracy or completeness.
+                  All property details, images, pricing, and availability are indicative and subject to change without notice. ShivKiran Propertiees does not guarantee accuracy or completeness.
                 </p>
               </section>
 
@@ -54,7 +54,7 @@ export default function TermsAndConditions() {
                   <h2 className="text-2xl font-bold">Intellectual Property</h2>
                 </div>
                 <p className="text-stone-600 leading-relaxed">
-                  All website content including logos, text, images, and designs are the property of Shiv Kiran Properties and may not be reproduced without permission.
+                  All website content including logos, text, images, and designs are the property of ShivKiran Propertiees and may not be reproduced without permission.
                 </p>
               </section>
 
@@ -66,7 +66,7 @@ export default function TermsAndConditions() {
                   <h2 className="text-2xl font-bold">Limitation of Liability</h2>
                 </div>
                 <p className="text-stone-600 leading-relaxed">
-                  Shiv Kiran Properties shall not be liable for any loss, damage, or inconvenience arising from the use of this website or reliance on its content.
+                  ShivKiran Propertiees shall not be liable for any loss, damage, or inconvenience arising from the use of this website or reliance on its content.
                 </p>
               </section>
 
@@ -90,7 +90,7 @@ export default function TermsAndConditions() {
                   <h2 className="text-2xl font-bold">Communication Consent</h2>
                 </div>
                 <p className="text-stone-600 leading-relaxed">
-                  By submitting your contact details, you authorize Shiv Kiran Properties to contact you via call, SMS, WhatsApp, RCS, or email for property-related communication.
+                  By submitting your contact details, you authorize ShivKiran Propertiees to contact you via call, SMS, WhatsApp, RCS, or email for property-related communication.
                 </p>
               </section>
 
@@ -102,7 +102,7 @@ export default function TermsAndConditions() {
                   <h2 className="text-2xl font-bold">Changes to Terms</h2>
                 </div>
                 <p className="text-stone-600 leading-relaxed">
-                  Shiv Kiran Properties reserves the right to modify these Terms & Conditions at any time without prior notice.
+                  ShivKiran Propertiees reserves the right to modify these Terms & Conditions at any time without prior notice.
                 </p>
               </section>
 

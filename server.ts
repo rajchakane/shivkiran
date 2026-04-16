@@ -4,6 +4,8 @@ import nodemailer from 'nodemailer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import 'dotenv/config';``
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,13 +29,13 @@ async function startServer() {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER, // Your Gmail address
-        pass: process.env.EMAIL_PASS, // Your Gmail App Password
+        user: process.env.VITE_EMAIL_USER, // Your Gmail address
+        pass: process.env.VITE_EMAIL_PASS, // Your Gmail App Password
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.VITE_EMAIL_USER,
       to: 'raj.chakane@gmail.com',
       subject: `New Enquiry from ${source || 'ShivKiran Propertiees'}`,
       text: `
@@ -61,7 +63,7 @@ async function startServer() {
     };
 
     try {
-      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      if (!process.env.VITE_EMAIL_USER || !process.env.VITE_EMAIL_PASS) {
         console.warn('EMAIL_USER or EMAIL_PASS not set. Email not sent.');
         return res.status(200).json({ 
           success: true, 

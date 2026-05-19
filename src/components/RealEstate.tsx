@@ -731,14 +731,14 @@ export const PlotLocations = () => {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4">
                 {[
-                  { name: 'Uran', desc: 'Strategic coastal hub.', image: '/assets/images/residential.png' },
-                  { name: 'Ranjanpada', desc: 'Rapidly developing node.', image: '/assets/images/residential.png' },
-                  { name: 'Pen', desc: 'Gateway to growth.', image: '/assets/images/residential.png' },
+                  { name: 'Uran', desc: 'Strategic coastal hub.', image: '/assets/images/uran.png' },
+                  { name: 'Ranjanpada', desc: 'Rapidly developing node.', image: '/assets/images/ranjanpada.png' },
+                  { name: 'Pen', desc: 'Gateway to growth.', image: '/assets/images/pen.png' },
                   { name: 'Chirner', desc: 'Green investment zone.', image: '/assets/images/residential.png' },
-                  { name: 'Jasai', desc: 'Connectivity at its best.', image: '/assets/images/residential.png' },
-                  { name: 'Dronagiri', desc: 'Future smart city.', image: '/assets/images/residential.png' },
-                  { name: 'Ulwe', desc: 'Modern urban living.', image: '/assets/images/residential.png' },
-                  { name: 'Kharghar', desc: 'Premium residential hub.', image: '/assets/images/residential.png' }
+                  { name: 'Jasai', desc: 'Connectivity at its best.', image: '/assets/images/jasai.png' },
+                  { name: 'Dronagiri', desc: 'Future smart city.', image: '/assets/images/dronagiri.png' },
+                  { name: 'Ulwe', desc: 'Modern urban living.', image: '/assets/images/ulwe.png' },
+                  { name: 'Kharghar', desc: 'Premium residential hub.', image: '/assets/images/kharghar.png' }
                 ].map((site, i) => (
                   <div key={i} className="group relative bg-stone-50 rounded-3xl border border-stone-100 hover:border-emerald-200 transition-all overflow-hidden aspect-[3/4]">
                     <img 

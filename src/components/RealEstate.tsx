@@ -463,7 +463,7 @@ export const Developments = () => {
           className="flex overflow-x-auto pb-12 gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth"
         >
           {developments.map((dev, i) => (
-            <div key={i} className="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)] group overflow-hidden rounded-[32px] hover:shadow-2xl hover:shadow-emerald-900/20 transition-all snap-start">
+            <div key={i} className="flex-shrink-0 w-[90%] md:w-[calc(48%-1.5rem)] lg:w-[calc(31%-2rem)] group overflow-hidden rounded-[32px] hover:shadow-2xl hover:shadow-emerald-900/20 transition-all snap-start">
               <div className="p-8 bg-stone-700">
                 <h3 className="text-xl font-bold mb-4 text-white">{dev.title}</h3>
                 <p className="text-stone-400 text-sm leading-relaxed mb-6">{dev.description}</p>
